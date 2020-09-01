@@ -15,16 +15,44 @@ import javax.swing.JComponent;
  */
 public class EmojiComponent extends JComponent {
     
-    private  SmilyFace smilyEmoji;
+    private final SmilyFace smilyEmoji;
+    
+    public EmojiComponent() {
+        
+        smilyEmoji = new SmilyFace();
+        
+    }
     
     @Override
     public void paintComponent(Graphics g) {
         
         Graphics2D g2 = (Graphics2D) g;
         
-        smilyEmoji = new SmilyFace(g2);
+        smilyEmoji.draw(g2);
         
-        smilyEmoji.draw();
+    }
+    
+    public void sad() {
+        
+        smilyEmoji.sad();
+        
+    }
+    
+    public void happy() {
+        
+        smilyEmoji.happy();
+        
+    }
+    
+    public int getEmotionalState() {
+        
+        return smilyEmoji.getEmotionalState();
+        
+    }
+    
+    public void setEmotionalState(int state) {
+        
+        smilyEmoji.setEmotionalState(state);
         
     }
     
